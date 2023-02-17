@@ -44,15 +44,9 @@ void qsort_sort(List &l, bool numeric) {
     else std::qsort(nodes, l.size, sizeof(Node*), string_compare);
  
 
-    /*for loop for adding nodes back*/
-    Node *p = l.head;
+ /*for loop for adding nodes back*/
     l.head = nodes[0];
-    for (size_t i = 1; i < l.size; i ++){
-        l.head->next = nodes[i];
-        l.head = l.head->next;
-    }
-    l.head->next = NULL; 
-    l.head = p; 
-
+    for (size_t i = 0; i < l.size; i++) nodes[i]->next = nodes[i+1];
+    nodes[l.size-1]->next = NULL; 
 
 }
