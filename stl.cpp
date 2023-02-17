@@ -19,17 +19,11 @@ void stl_sort(List &l, bool numeric) {
         }
     }
 
-    if (numeric == true) std::sort(nodes.begin(), nodes.end(), node_number_compare);
+    if (numeric) std::sort(nodes.begin(), nodes.end(), node_number_compare);
     else std::sort(nodes.begin(), nodes.end(), node_string_compare);
     
     /*for loop for adding nodes back*/
-    Node *p = l.head;
     l.head = nodes[0];
-    for (size_t i = 1; i < l.size; i ++){
-        l.head->next = nodes[i];
-        l.head = l.head->next;
-    }
-    l.head->next = NULL; 
-    l.head = p; 
-
+    for (size_t i = 0; i < nodes.size(); i++) nodes[i]->next = nodes[i+1];
+    nodes[nodes.size()-1]->next = NULL; 
 }
