@@ -74,7 +74,7 @@ Node *merge(Node *left, Node *right, bool numeric) {
     }
 
     else{
-        if (node_string_compare(left,right) == false){
+        if (node_string_compare(left,right)){
             left->next = merge(left->next, right, numeric);
             return left;
         }
