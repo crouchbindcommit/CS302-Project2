@@ -38,8 +38,8 @@ void List::push_front(const std::string &s){
     size++; 
 }
 
-bool node_number_compare(const Node *a, const Node *b){ return (a->number <= b->number);}
+bool node_number_compare(const Node *a, const Node *b){return (a->number <= b->number);}
 
-bool node_string_compare(const Node *a, const Node *b){return a->string.compare(b->string);}
+bool node_string_compare(const Node *a, const Node *b){return (a->string <= b->string);}
 
 size_t List::get_size(){return size;}
